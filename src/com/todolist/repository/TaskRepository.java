@@ -1,4 +1,5 @@
 package com.todolist.repository;
+import com.todolist.model.Task;
 
 public interface TaskRepository {
 
