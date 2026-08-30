@@ -3,6 +3,8 @@ package com.todolist.service;
 import com.todolist.model.Task;
 import com.todolist.repository.TaskRepository;
 
+import java.util.List;
+
 public class TaskService {
 
     private final TaskRepository repository;
@@ -19,10 +21,25 @@ public class TaskService {
         repository.createTask(task);
     }
 
+    public List<Task> listAllTasks() {
+        return repository.listAllTasks();
+    }
+
+    public Task getTaskById(int id) {
+        return repository.getTaskById(id);
+    }
+
     public void updateTask(Task task) {
         // Regras de negócio
     }
 
-    public void deleteTask(Task task) {
+    public void deleteTask(int id) {
+        Task task = repository.getTaskById(id);
+
+        if(task == null) {
+            throw new IllegalArgumentException("Task does not exist.");
+        }
+
+        repository.deleteTask(task);
     }
 }

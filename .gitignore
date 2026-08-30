@@ -3,8 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
-.idea
-todo-list.iml
+todo-list/.idea
+todo-list/todo-list.iml
 
 ### Eclipse ###
 .apt_generated
