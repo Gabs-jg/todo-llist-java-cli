@@ -30,7 +30,18 @@ public class TaskService {
     }
 
     public void updateTask(Task task) {
-        // Regras de negócio
+        Task t = repository.getTaskById(task.getId());
+
+        if(t == null) {
+            throw new IllegalArgumentException("Task not found.");
+        }
+
+        if(t.getNome() == null || task.getNome().isBlank()) {
+            throw new IllegalArgumentException("Name cannot be empty;");
+        }
+
+        repository.updateTask(task);
+
     }
 
     public void deleteTask(int id) {
